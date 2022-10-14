@@ -17,10 +17,13 @@ dropoff_latitude = st.text_input('Enter dropoff_latitude')
 passenger_count = st.text_input('Passenger count')
 
 
+data_entry = f"""
+date = {date_time} \n
+pickup_longitude = {pickup_longitude} \n
+"""
 
 
-
-st.write('Thank')
+st.write(f'we got = {data_entry}  ')
 
 
 
