@@ -9,7 +9,7 @@ st.markdown("""
 
             """)
 
-date_time = st.text_input('Enter date and time')
+pickup_datetime = st.text_input('Enter date and time')
 pickup_longitude = st.text_input('Enter pickup_longitude')
 pickup_latitude = st.text_input('Enter pickup_latitude')
 dropoff_longitude = st.text_input('Enter dropoff_longitude')
@@ -17,40 +17,28 @@ dropoff_latitude = st.text_input('Enter dropoff_latitude')
 passenger_count = st.text_input('Passenger count')
 
 
-data_entry = f"""
+collected_data = f"""
 date = {date_time} \n
 pickup_longitude = {pickup_longitude} \n
+etc
 """
 
+st.write(f'we got \n {collected_data}  ')
 
-st.write(f'we got \n {data_entry}  ')
+url = 'https://taxifare.lewagon.ai/predict'
 
+query = ('pickup_datetime' + pickup_datetime
+         + 'pickup_longitude' + pickup_longitude
+         + 'pickup_latitude' + pickup_latitude
+         + 'dropoff_longitude' + dropoff_longitude
+         + 'dropoff_latitude' + dropoff_latitude
+         + 'passenger_count' + passenger_count
+         )
 
+fare_query_url = url + '?' + query
+fare_query_url
+print(fare_query_url)
 
-with st.form("my_form"):
-   st.write("Inside the form")
-   slider_val = st.slider("Form slider")
-   checkbox_val = st.checkbox("Form checkbox")
-
-   # Every form must have a submit button.
-   submitted = st.form_submit_button("Submit")
-   if submitted:
-       st.write("slider", slider_val, "checkbox", checkbox_val)
-
-st.write("Outside the form")
-
-
-df = pd.DataFrame({
-    'first column': list(range(1, 11)),
-    'second column': np.arange(10, 101, 10)
-})
-
-# this slider allows the user to select a number of lines
-# to display in the dataframe
-# the selected value is returned by st.slider
-line_count = st.slider('Select a line count', 1, 10, 3)
-
-# and used to select the displayed lines
-head_df = df.head(line_count)
-
-head_df
+fare_test = "https://taxifare.lewagon.ai/predict?pickup_datetime=2012-10-06%2012:10:20&pickup_longitude=40.7614327&pickup_latitude=-73.9798156&dropoff_longitude=40.6513111&dropoff_latitude=-73.8803331&passenger_count=2"
+fare = fare_test[1]
+st.write(f'fare = {fare}  ')
