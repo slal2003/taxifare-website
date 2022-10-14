@@ -15,11 +15,11 @@ st.markdown("""
 
 pickup_date = st.date_input('Enter pickup date', value = datetime.datetime(2022,10,14,15,22,32) )
 pickup_time = st.time_input('Enter pickup time', value = datetime.datetime(2022,10,14,15,22,32))
-pickup_longitude = st.text_input('Enter pickup_longitude')
-pickup_latitude = st.text_input('Enter pickup_latitude')
-dropoff_longitude = st.text_input('Enter dropoff_longitude')
-dropoff_latitude = st.text_input('Enter dropoff_latitude')
-passenger_count = st.text_input('Passenger count')
+pickup_longitude = st.text_input('Enter pickup_longitude', value=(40))
+pickup_latitude = st.text_input('Enter pickup_latitude', value=(73))
+dropoff_longitude = st.text_input('Enter dropoff_longitude' value=(41))
+dropoff_latitude = st.text_input('Enter dropoff_latitude', value=(41))
+passenger_count = st.text_input('Passenger count', value=(1))
 
 # pickup_datetime = pickup_date + ' ' + pickup_time
 pickup_datetime = '2022-10-14 10:32:23'
@@ -35,13 +35,7 @@ query = ('pickup_datetime=' + pickup_datetime
          )
 
 fare_query_url = url + '?' + query
-st.write(f'query = {fare_query_url}')
 
 fare = requests.get(fare_query_url).json()
 fare = fare['fare']
 st.write(f'fare = {fare}')
-
-fare_test = "https://taxifare.lewagon.ai/predict?pickup_datetime=2012-10-06%2012:10:20&pickup_longitude=40.7614327&pickup_latitude=-73.9798156&dropoff_longitude=40.6513111&dropoff_latitude=-73.8803331&passenger_count=2"
-fare_test = requests.get(fare_test).json()
-fare_test = fare_test['fare']
-st.write(f'fare_test = {fare_test}')
