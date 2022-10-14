@@ -23,7 +23,7 @@ pickup_longitude = {pickup_longitude} \n
 """
 
 
-st.write(f'we got = {data_entry}  ')
+st.write(f'we got \n {data_entry}  ')
 
 
 
