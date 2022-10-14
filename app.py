@@ -18,7 +18,7 @@ passenger_count = st.text_input('Passenger count')
 
 
 collected_data = f"""
-date = {date_time} \n
+date = {pickup_datetime} \n
 pickup_longitude = {pickup_longitude} \n
 etc
 """
