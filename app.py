@@ -37,7 +37,7 @@ query = ('pickup_datetime=' + pickup_datetime
 fare_query_url = url + '?' + query
 
 response = requests.get(fare_query_url)
-print(fare)
+print(response)
 
 st.write(f'query = {fare_query_url}')
 st.write(f'fare = {response}  ')
