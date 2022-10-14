@@ -27,12 +27,12 @@ st.write(f'we got \n {collected_data}  ')
 
 url = 'https://taxifare.lewagon.ai/predict'
 
-query = ('pickup_datetime' + pickup_datetime
-         + 'pickup_longitude' + pickup_longitude
-         + 'pickup_latitude' + pickup_latitude
-         + 'dropoff_longitude' + dropoff_longitude
-         + 'dropoff_latitude' + dropoff_latitude
-         + 'passenger_count' + passenger_count
+query = ('pickup_datetime=' + pickup_datetime
+         + '&pickup_longitude=' + pickup_longitude
+         + '&pickup_latitude=' + pickup_latitude
+         + '&dropoff_longitude=' + dropoff_longitude
+         + '&dropoff_latitude=' + dropoff_latitude
+         + '&passenger_count=' + passenger_count
          )
 
 fare_query_url = url + '?' + query
