@@ -9,6 +9,21 @@ st.markdown("""
 
             """)
 
+date_time = st.text_input('Enter date and time')
+pickup_longitude = st.text_input('Enter pickup_longitude')
+pickup_latitude = st.text_input('Enter pickup_latitude')
+dropoff_longitude = st.text_input('Enter pickup_longitude')
+dropoff_latitude = st.text_input('Enter pickup_latitude')
+passenger_count = st.text_input('Passenger count')
+
+
+
+
+
+st.write('Thank')
+
+
+
 with st.form("my_form"):
    st.write("Inside the form")
    slider_val = st.slider("Form slider")
